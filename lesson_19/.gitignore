@@ -132,4 +132,4 @@ dmypy.json
 
 # static files
 
-templates/static
+src/static
