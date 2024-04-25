@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Users{% endblock %}
+
+{% block content %}
+<h1>Users</h1>
+<div class="users">
+    {% for user in users %}
+    {% if user.age > 15 and user.age < 45 %}
+    <p>{{ user.first_name }} {{ user.last_name }}, {{ user.age }}, {{ user.email }}</p>
+    {% endif %}
+    {% endfor %}
+</div>
+<div class="invalid-users">
+    {% for user in users %}
+    {% if user.first_name.isalpha() and user.last_name.isalpha() %}
+    <p>{{ user.first_name }} {{ user.last_name }} have invalid characters</p>
+    {% endif %}
+    {% endfor %}
+</div>
+<img src="{{ url_for('static', filename='images/Harbour.jpg') }}" alt="Harbour">
+{% endblock %}
